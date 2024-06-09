@@ -32,550 +32,645 @@ spec:
         servers:
           - url: https://apigee-apihub-demo.github.io
         paths:
-  /users:
-    post:
-      tags:
-      - "user"
-      summary: "Add a new user"
-      description: ""
-      operationId: "addPet"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/xml"
-      - "application/json"
-      responses:
-        "405":
-          description: "Invalid input"
-    get:
-      tags:
-      - "user"
-      summary: "Get all users"
-      description: ""
-      operationId: "updatePet"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/xml"
-      - "application/json"
-      responses:
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-        "405":
-          description: "Validation exception"
-  /users/{Id}:
-    get:
-      tags:
-      - "user"
-      summary: "Get user by id"
-      description: "Returns a single pet"
-      operationId: "getPetById"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-    patch:
-      tags:
-      - "user"
-      summary: "Change user with id"
-      description: "Returns a single pet"
-      operationId: "change user"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-    delete:
-      tags:
-      - "user"
-      summary: "Delete user with id"
-      description: ""
-      operationId: "deletePet"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "api_key"
-        in: "header"
-        required: false
-        type: "string"
-      - name: "Id"
-        in: "path"
-        description: "Pet id to delete"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-  /users/{Id}/bands{bandsId}:      
-    patch:
-      tags:
-      - "user"
-      summary: "Add user to the band"
-      description: "Returns a single pet"
-      operationId: "Addtoband"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "bandsId"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"        
-  /users/{Id}/tasks{tasksId}:      
-    patch:
-      tags:
-      - "user"
-      summary: "Add user to the task"
-      description: "Returns a single pet"
-      operationId: "Addtotask"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "tasksId"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"       
-  /tasks:
-  
-
-    post:
-      tags:
-      - "task"
-      summary: "Create new task"
-      description: ""
-      operationId: "addTask"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/xml"
-      - "application/json"
-      responses:
-        "405":
-          description: "Invalid input"
-    
-    get:
-      tags:
-      - "task"
-      summary: "Get all tasks"
-      description: ""
-      operationId: "updateTask"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/xml"
-      - "application/json"
-      responses:
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-        "405":
-          description: "Validation exception"
-  /tasks/{Id}:
-  
-    get:
-      tags:
-      - "task"
-      summary: "Get task with id"
-      description: "Returns a single pet"
-      operationId: "gettById"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-    patch:
-      tags:
-      - "task"
-      summary: "Change task with id"
-      description: "Returns a single pet"
-      operationId: "change task"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-    delete:
-      tags:
-      - "task"
-      summary: "Deletes a task with id"
-      description: ""
-      operationId: "deleteTask"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "api_key"
-        in: "header"
-        required: false
-        type: "string"
-      - name: "Id"
-        in: "path"
-        description: "Pet id to delete"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-
-  /bands:
-  
-    post:
-      tags:
-      - "band"
-      summary: "Create new band"
-      description: ""
-      operationId: "addPt"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/xml"
-      - "application/json"
-      responses:
-        "405":
-          description: "Invalid input"
-    get:
-      tags:
-      - "band"
-      summary: "Get all bands"
-      description: ""
-      operationId: "updatPet"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/xml"
-      - "application/json"
-      responses:
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-        "405":
-          description: "Validation exception"
-  /bands/{Id}:
-    get:
-      tags:
-      - "band"
-      summary: "Get bands with id"
-      description: "Returns a single pet"
-      operationId: "gettd"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-    delete:
-      tags:
-      - "band"
-      summary: "delete bands with id"
-      description: "Returns a single pet"
-      operationId: "gett"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-  /bands/{Id}/tasks:
-    get:
-      tags:
-      - "band"
-      summary: "Get bands tasks"
-      description: "Returns a single pet"
-      operationId: "get"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-  /bands/{Id}/users:
-    get:
-      tags:
-      - "band"
-      summary: "Get bands users"
-      description: "Returns a single pet"
-      operationId: "ge"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-  /bands/{Id}/weapons:
-    get:
-      tags:
-      - "band"
-      summary: "Get bands weapons"
-      description: "Returns a single pet"
-      operationId: "gt"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-  /weapons:
-    get:
-      tags:
-      - "weapon"
-      summary: "Get all weapon"
-      description: ""
-      operationId: "updatPe"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/xml"
-      - "application/json"
-      responses:
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-        "405":
-          description: "Validation exception"
-  /weapons/{Id}:
-    get:
-      tags:
-      - "weapon"
-      summary: "Get weapon with id"
-      description: "Returns a single pet"
-      operationId: "gtt"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-    delete:
-      tags:
-      - "weapon"
-      summary: "delete weapon with id"
-      description: "Returns a single pet"
-      operationId: "tt"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-    put:
-      tags:
-      - "weapon"
-      summary: "change weapon with id"
-      description: "Returns a single pet"
-      operationId: "getdt"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
-    patch:
-      tags:
-      - "weapon"
-      summary: "change weapon with id"
-      description: "Returns a single pet"
-      operationId: "ffftt"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "Id"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "Invalid ID supplied"
-        "404":
-          description: "Pet not found"
+          /users:
+            post:
+              tags:
+                - user
+              summary: Add a new user
+              description: ""
+              operationId: addUser
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                  application/xml:
+                    schema:
+                      type: object
+              responses:
+                '405':
+                  description: Invalid input
+            get:
+              tags:
+                - user
+              summary: Get all users
+              description: ""
+              operationId: getAllUsers
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                    application/xml:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                '400':
+                  description: Invalid request
+                '404':
+                  description: Users not found
+                '405':
+                  description: Validation exception
+          /users/{Id}:
+            get:
+              tags:
+                - user
+              summary: Get user by id
+              description: Returns a single user
+              operationId: getUserById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of user to return
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: object
+                    application/xml:
+                      schema:
+                        type: object
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: User not found
+            patch:
+              tags:
+                - user
+              summary: Update user by id
+              description: Updates a single user
+              operationId: updateUserById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of user to update
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                  application/xml:
+                    schema:
+                      type: object
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: User not found
+            delete:
+              tags:
+                - user
+              summary: Delete user by id
+              description: ""
+              operationId: deleteUserById
+              parameters:
+                - name: api_key
+                  in: header
+                  required: false
+                  schema:
+                    type: string
+                - name: Id
+                  in: path
+                  description: ID of user to delete
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: User not found
+          /users/{Id}/bands/{bandsId}:
+            patch:
+              tags:
+                - user
+              summary: Add user to the band
+              description: Adds a user to a band
+              operationId: addUserToBand
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of user
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+                - name: bandsId
+                  in: path
+                  description: ID of band
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Band not found
+          /users/{Id}/tasks/{tasksId}:
+            patch:
+              tags:
+                - user
+              summary: Add user to the task
+              description: Adds a user to a task
+              operationId: addUserToTask
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of user
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+                - name: tasksId
+                  in: path
+                  description: ID of task
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Task not found
+          /tasks:
+            post:
+              tags:
+                - task
+              summary: Create new task
+              description: ""
+              operationId: addTask
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                  application/xml:
+                    schema:
+                      type: object
+              responses:
+                '405':
+                  description: Invalid input
+            get:
+              tags:
+                - task
+              summary: Get all tasks
+              description: ""
+              operationId: getAllTasks
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                    application/xml:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                '400':
+                  description: Invalid request
+                '404':
+                  description: Tasks not found
+                '405':
+                  description: Validation exception
+          /tasks/{Id}:
+            get:
+              tags:
+                - task
+              summary: Get task by id
+              description: Returns a single task
+              operationId: getTaskById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of task to return
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: object
+                    application/xml:
+                      schema:
+                        type: object
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Task not found
+            patch:
+              tags:
+                - task
+              summary: Update task by id
+              description: Updates a single task
+              operationId: updateTaskById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of task to update
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                  application/xml:
+                    schema:
+                      type: object
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Task not found
+            delete:
+              tags:
+                - task
+              summary: Delete task by id
+              description: ""
+              operationId: deleteTaskById
+              parameters:
+                - name: api_key
+                  in: header
+                  required: false
+                  schema:
+                    type: string
+                - name: Id
+                  in: path
+                  description: ID of task to delete
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Task not found
+          /bands:
+            post:
+              tags:
+                - band
+              summary: Create new band
+              description: ""
+              operationId: addBand
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                  application/xml:
+                    schema:
+                      type: object
+              responses:
+                '405':
+                  description: Invalid input
+            get:
+              tags:
+                - band
+              summary: Get all bands
+              description: ""
+              operationId: getAllBands
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                    application/xml:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                '400':
+                  description: Invalid request
+                '404':
+                  description: Bands not found
+                '405':
+                  description: Validation exception
+          /bands/{Id}:
+            get:
+              tags:
+                - band
+              summary: Get band by id
+              description: Returns a single band
+              operationId: getBandById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of band to return
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: object
+                    application/xml:
+                      schema:
+                        type: object
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Band not found
+            delete:
+              tags:
+                - band
+              summary: Delete band by id
+              description: ""
+              operationId: deleteBandById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of band to delete
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Band not found
+          /bands/{Id}/tasks:
+            get:
+              tags:
+                - band
+              summary: Get tasks of a band
+              description: Returns tasks of a band
+              operationId: getBandTasks
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of band
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                    application/xml:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Tasks not found
+          /bands/{Id}/users:
+            get:
+              tags:
+                - band
+              summary: Get users of a band
+              description: Returns users of a band
+              operationId: getBandUsers
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of band
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                    application/xml:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Users not found
+          /bands/{Id}/weapons:
+            get:
+              tags:
+                - band
+              summary: Get weapons of a band
+              description: Returns weapons of a band
+              operationId: getBandWeapons
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of band
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                    application/xml:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Weapons not found
+          /weapons:
+            get:
+              tags:
+                - weapon
+              summary: Get all weapons
+              description: ""
+              operationId: getAllWeapons
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                    application/xml:
+                      schema:
+                        type: array
+                        items:
+                          type: object
+                '400':
+                  description: Invalid request
+                '404':
+                  description: Weapons not found
+                '405':
+                  description: Validation exception
+          /weapons/{Id}:
+            get:
+              tags:
+                - weapon
+              summary: Get weapon by id
+              description: Returns a single weapon
+              operationId: getWeaponById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of weapon to return
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                  content:
+                    application/json:
+                      schema:
+                        type: object
+                    application/xml:
+                      schema:
+                        type: object
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Weapon not found
+            delete:
+              tags:
+                - weapon
+              summary: Delete weapon by id
+              description: ""
+              operationId: deleteWeaponById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of weapon to delete
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Weapon not found
+            put:
+              tags:
+                - weapon
+              summary: Update weapon by id
+              description: "Updates a single weapon"
+              operationId: updateWeaponById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of weapon to update
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                  application/xml:
+                    schema:
+                      type: object
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Weapon not found
+            patch:
+              tags:
+                - weapon
+              summary: Update weapon by id
+              description: Updates a single weapon
+              operationId: patchWeaponById
+              parameters:
+                - name: Id
+                  in: path
+                  description: ID of weapon to update
+                  required: true
+                  schema:
+                    type: integer
+                    format: int64
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                  application/xml:
+                    schema:
+                      type: object
+              responses:
+                '200':
+                  description: successful operation
+                '400':
+                  description: Invalid ID supplied
+                '404':
+                  description: Weapon not found
